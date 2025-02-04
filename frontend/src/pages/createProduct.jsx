@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import axios from "axios";
 
@@ -8,7 +8,7 @@ const CreateProduct = () => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState("");
-    const [tags, setTags] = useState("");
+    const [tags, setTags] = useState("");  // Tags should be a comma-separated string
     const [price, setPrice] = useState("");
     const [stock, setStock] = useState("");
     const [email, setEmail] = useState("");
@@ -22,36 +22,55 @@ const CreateProduct = () => {
 
     const handleImagesChange = (e) => {
         const files = Array.from(e.target.files);
-
         setImages((prevImages) => prevImages.concat(files));
 
         const imagePreviews = files.map((file) => URL.createObjectURL(file));
         setPreviewImages((prevPreviews) => prevPreviews.concat(imagePreviews));
     };
 
+    useEffect(() => {
+      // Cleanup object URLs to avoid memory leaks
+      return () => {
+          previewImages.forEach((url) => URL.revokeObjectURL(url));
+      };
+  }, [previewImages]);
+  
+  
+    // sending data to the backend
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Hi")
 
         const formData = new FormData();
         formData.append("name", name);
         formData.append("description", description);
         formData.append("category", category);
-        formData.append("tags", tags);
+        formData.append("tags", tags.trim());  // Ensure tags are a comma-separated string
         formData.append("price", price);
         formData.append("stock", stock);
         formData.append("email", email);
 
-        images.forEach((image) => {
+        // Ensure images are appended correctly
+        images.forEach((image, index) => {
+            console.log(`Appending image ${index + 1}:`, image.name);
             formData.append("images", image);
         });
 
+        // Debugging FormData content
+        console.log("FormData before sending:");
+        formData.forEach((value, key) => {
+            console.log(key, value);
+        });
+
         try {
-            const response = await axios.post("http://localhost:8000/api/v2/product/create-product", formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                },
-            });
+            const response = await axios.post(
+                "http://localhost:8000/api/v2/product/create-product",
+                formData,
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                }
+            );
 
             if (response.status === 201) {
                 alert("Product created successfully!");
@@ -66,11 +85,10 @@ const CreateProduct = () => {
                 setEmail("");
             }
         } catch (err) {
-            console.error("Error creating product:", err);
+            console.error("Error creating product:", err.response?.data || err.message);
             alert("Failed to create product. Please check the data and try again.");
         }
     };
-
 
     return (
         <div className="w-[90%] max-w-[500px] bg-white shadow h-auto rounded-[4px] p-4 mx-auto">
@@ -197,7 +215,7 @@ const CreateProduct = () => {
                     </div>
                 </div>
                 <button
-                    type="submit"
+                    type="submit" 
                     className="w-full mt-4 bg-blue-500 text-white p-2 rounded"
                 >
                     Create

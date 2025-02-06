@@ -50,7 +50,8 @@ In this milestone, we focused on setting up the initial front-end structure and 
 ### Git Integration:
 - Added the new files to version control and committed progress to the GitHub repository.
 
-This milestone lays the groundwork for creating the front-end interface and interaction logic for the application.
+This milestone lays the groundwork for creating the front-end interface and interaction logic for the application.
+
 
 
 ## Milestone 3: Project Setup for Backend
@@ -69,8 +70,7 @@ In this milestone, the foundational backend structure for the e-commerce applica
 ### Git Integration
 - Configured version control with Git and included a .gitignore file to exclude sensitive files and unnecessary folders like node_modules.
 
-This milestone sets up a solid backend foundation for further development, including API implementation, user authentication, and business logic handling. It ensures that the project is structured, secure, and ready for future expansion.
-
+This milestone sets up a solid backend foundation for further development, including API implementation, user authentication, and business logic handling. It ensures that the project is structured, secure, and ready for future expansion.
 
 ## Milestone 4: Creating User Model and Controller
 
@@ -99,7 +99,7 @@ In this milestone, the focus was on implementing the user model and controller f
 ### Git Integration:
 - Committed progress to version control, ensuring proper documentation of changes and updates.
 
-This milestone provides the necessary backend infrastructure to manage user data, supporting future features like user authentication and authorization.
+This milestone provides the necessary backend infrastructure to manage user data, supporting future features like user authentication and authorization.
 
 
 ## Milestone 5: Creating the Signup Page
@@ -121,29 +121,31 @@ In this milestone, we focused on developing the signup page to enable users to c
 ### Code Organization:
 - Refactored the code into reusable components where possible to promote cleaner and more maintainable code.
 
-This milestone enhances the user experience by allowing new users to register, paving the way for further integration with back-end user authentication systems.
+This milestone enhances the user experience by allowing new users to register, paving the way for further integration with back-end user authentication systems.
 
+## Milestone 6: Encrypting Passwords and Storing User Data
 
-## Milestone 6: creating the backend endpoint for the Signup page to store all user data securely
+In this milestone, the focus was on enhancing the security and data handling during the user registration process. Key achievements include:
 
-Create a secure backend endpoint for user signup, encrypting passwords and storing user data safely.
+### Password Encryption:
+- Utilized bcrypt to hash user passwords during the signup process to ensure secure storage.
+- Replaced plain-text password storage with hashed passwords in the database.
 
-### Goals:
--Encrypt passwords before saving.
--Securely store user details in the database.
+### Complete User Data Storage:
+- Stored all user information, including name, email, and the hashed password, in the database using the User model.
+- Ensured sensitive data is handled securely and adheres to best practices.
 
-### Why Encrypt Passwords?
--Protect Data: Keeps passwords safe if breached.
--Privacy: Prevents password visibility.
--Compliance: Meets GDPR, PCI-DSS standards.
--Security: Thwarts password theft.
+### Validation Enhancements:
+- Added additional backend validation to verify that required fields are provided during signup.
+- Prevented duplicate user registrations by ensuring email uniqueness in the database.
 
-### Steps:
--Encrypt Passwords: Use bcrypt to hash passwords.
--Store hashed passwords in the database.
--Store User Data:
--Save user details (name, email, etc.) securely.
--Ensure passwords are encrypted.
+### API Integration:
+- Updated the registration endpoint (/api/users/register) to handle password hashing and data storage seamlessly.
+
+### Live Coding Walkthrough:
+- Demonstrated the implementation of these features during a live coding session, explaining the importance of password encryption and secure data handling.
+
+This milestone significantly enhances the application's security by protecting user credentials and laying a solid foundation for authentication and authorization in future milestones.
 
 ## Milestone 7: Creating the Login Endpoint  
 
@@ -169,8 +171,7 @@ In this milestone, we focused on implementing a secure and efficient login endpo
 - Ensured that sensitive user data, such as passwords, remains protected during the authentication process.  
 - Followed industry best practices to prevent common vulnerabilities, such as brute force attacks.  
 
-This milestone provides the foundation for user authentication, paving the way for implementing session management and token-based authentication in future milestones.
-
+This milestone provides the foundation for user authentication, paving the way for implementing session management and token-based authentication in future milestones.  
 
 # Milestone 8: Designing the Homepage and Card Component  
 
@@ -192,7 +193,7 @@ In this milestone, we focused on creating a visually appealing and functional ho
 
 ### 4. Code Submission:  
 - Pushed the updated code to the GitHub repository.  
-- Verified that the repository is publicly accessible for evaluation.
+- Verified that the repository is publicly accessible for evaluation.  
 
 ## Milestone 9: Creating the Product Form  
 
@@ -216,35 +217,38 @@ In this milestone, we focused on building a form that allows users to add produc
 
 ### 4. Future Enhancements & Experimentation:  
 - Considered additional features for better access control:  
-  - Admin Access: Restrict product creation to admin users only.  
-  - Shop Profiles: Implemented a feature where only users with shop profiles can upload products.  
-  - Enhanced UI/UX: Improved form design for a seamless user experience.
+  - *Admin Access:* Restrict product creation to admin users only.  
+  - *Shop Profiles:* Implemented a feature where only users with shop profiles can upload products.  
+  - *Enhanced UI/UX:* Improved form design for a seamless user experience.  
 
+## Milestone 10: Creating the Product Schema and API Endpoint  
 
- ## Milestone 10: Creating the Product Schema and API Endpoint
-In this milestone, we focused on defining the structure of product data and creating an API endpoint to store product details in MongoDB.
+In this milestone, we focused on defining the structure of product data and creating an API endpoint to store product details in MongoDB.  
 
- ### 1. Product Schema Definition:
-Defined a structured product schema using Mongoose to store product data in MongoDB.
-Ensured each field has proper validation to maintain data integrity:
-Name: Required, string
-Description: Required, string
-Price: Required, number, with validation for non-negative values
-Image URL(s): Required, array of strings for multiple image storage
-Category: Required, string
-CreatedAt: Automatically generated timestamp
-### 2. Endpoint Creation:
-Developed a POST endpoint (/api/products) to accept product details from the frontend.
-Implemented validation to ensure only correctly formatted data is stored in the database.
-Saved product information to MongoDB using Mongoose models.
-### 3. Data Validation & Integrity:
-Enforced strict validation to prevent invalid or incomplete product entries.
-Returned appropriate error messages for missing or incorrect data inputs.
-### 4. Future Enhancements & Experimentation:
-Considered adding role-based access control:
-Admin Access: Only admin users can create new products.
-Shop Profiles: Restrict product uploads to users with a registered shop profile.
-Image Upload Handling: Implement a cloud-based solution (e.g., Cloudinary, AWS S3) for better image management.
+### 1. Product Schema Definition:  
+- Defined a structured product schema using Mongoose to store product data in MongoDB.  
+- Ensured each field has proper validation to maintain data integrity:  
+  - *Name:* Required, string  
+  - *Description:* Required, string  
+  - *Price:* Required, number, with validation for non-negative values  
+  - *Image URL(s):* Required, array of strings for multiple image storage  
+  - *Category:* Required, string  
+  - *CreatedAt:* Automatically generated timestamp  
+
+### 2. Endpoint Creation:  
+- Developed a *POST* endpoint (/api/products) to accept product details from the frontend.  
+- Implemented validation to ensure only correctly formatted data is stored in the database.  
+- Saved product information to MongoDB using Mongoose models.  
+
+### 3. Data Validation & Integrity:  
+- Enforced strict validation to prevent invalid or incomplete product entries.  
+- Returned appropriate error messages for missing or incorrect data inputs.  
+
+### 4. Future Enhancements & Experimentation:  
+- Considered adding role-based access control:  
+  - *Admin Access:* Only admin users can create new products.  
+  - *Shop Profiles:* Restrict product uploads to users with a registered shop profile.  
+  - *Image Upload Handling:* Implement a cloud-based solution (e.g., Cloudinary, AWS S3) for better image management.  
 
 ## Milestone 11: Fetching and Displaying Product Data  
 
@@ -269,7 +273,6 @@ In this milestone, we focused on retrieving product data from the backend and dy
 - *Error Handling:* Displayed meaningful error messages in case of API failure.  
 - *Pagination & Filters:* Considered adding pagination and filtering options for better user experience.  
 
-
 ## Milestone 12: Filtering Products by User Email and Displaying Data  
 
 In this milestone, we focused on filtering products based on the *user's email* and sending only relevant product data to the frontend. Key achievements include:  
@@ -292,4 +295,29 @@ In this milestone, we focused on filtering products based on the *user's email* 
 ### *4. Future Enhancements & Experimentation:*  
 - *Role-Based Access:* Only allow authorized users (e.g., shop owners or admins) to upload and view specific products.  
 - *Advanced Filtering:* Extend filtering options to include categories, price ranges, and product availability.  
-- *Search Functionality:* Implement a search bar for users to quickly find their uploaded products.
+- *Search Functionality:* Implement a search bar for users to quickly find their uploaded products. 
+
+## Milestone 13: Updating Product Data and Form Auto-Fill  
+
+In this milestone, we focused on implementing update functionality for product data, allowing users to modify existing product information through an editable form. Key achievements include:  
+
+### Backend: Creating an Update Endpoint  
+- Developed a PUT endpoint to receive and update existing product data in MongoDB.  
+- Used Mongoose to find the product by its ID and update its fields.  
+- Ensured data validation to maintain data integrity and prevent errors during updates.  
+- Handled potential errors, such as cases where the product is not found.  
+
+### Frontend: Form Auto-Fill and Edit Functionality  
+- Added an Edit button to each product card.  
+- Clicking the Edit button opens a form pre-filled with the existing product details.  
+- Users can modify the form fields and save changes to update the product.  
+- Used React state and useEffect to manage form data and populate it with the product’s current details.  
+
+### UI and UX Enhancements  
+- Ensured a responsive layout for the edit form, providing a user-friendly experience.  
+- Added error messages for invalid data and success notifications on successful updates.  
+
+### Future Enhancements & Experimentation  
+- *Admin-Only Access*: Restrict update functionality to authorized users, such as shop owners or admins.  
+- *Real-Time Updates*: Implement real-time data updates on the product listing page.  
+- *Optimized Form Design*: Enhance the form with file uploads for updating product images and improved field validation.

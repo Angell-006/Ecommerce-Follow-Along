@@ -385,3 +385,5 @@ In this milestone, we focused on creating a dedicated *Product Info Page* to dis
 - Implemented a function to handle adding the product to the cart, updating the cart state in the application.  
 =======
 - *Batch Deletion*: Add functionality to delete multiple products at once.
+
+### Milestone 17: 

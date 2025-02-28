@@ -551,4 +551,35 @@ By the end of this milestone, you will:
 
 ---
 
+## Milestone 24: Order Confirmation Page  
 
+### Learning Goals 🎯  
+By the end of this milestone, you will:  
+- Create an *Order Confirmation Page*.  
+- Display ordered *products, **delivery address, and **total price*.  
+- Implement a *"Place Order"* button for final confirmation.  
+
+---
+
+### *1. Frontend Updates: Order Confirmation Page*  
+- Designed an *Order Summary Section* displaying:  
+  - *All products* being ordered with names, images, and prices.  
+  - *Selected delivery address* chosen in the previous step.  
+  - *Total order value*, summing up the prices of all cart items.  
+- Placed a *"Place Order"* button at the bottom to confirm the purchase.  
+
+---
+
+### *2. Backend Updates (Future Enhancements)*  
+- Store *order details* in the database upon confirmation.  
+- Implement an *order status tracking system* (Pending, Shipped, Delivered).  
+- Integrate *payment gateways* for a complete checkout experience.  
+
+---
+
+### *3. Future Enhancements & Experimentation*  
+- *Order Summary Styling*: Improve UI/UX with a clean and structured layout.  
+- *Payment Integration*: Add payment methods for real transactions.  
+- *Order Confirmation Email*: Send users a confirmation email after placing an order.  
+
+---

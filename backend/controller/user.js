@@ -1,10 +1,10 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
-const User = require("../model/user");
+const User = require("../Modal/user");
 const router = express.Router();
 const { upload } = require("../multer");
-const ErrorHandler = require("../utils/ErrorHandler");
+const ErrorHandler = require("../utility/ErrorHandler");
 const catchAsyncErrors = require("../middleware/catchAsyncError");
 const bcrypt = require("bcryptjs");
 require("dotenv").config();
@@ -116,5 +116,23 @@ router.post("/add-address", catchAsyncErrors(async (req, res, next) => {
         addresses: user.addresses,
     });
 }));
+
+
+router.get("/addresses", catchAsyncErrors(async (req, res, next) => {
+    const { email } = req.query;
+    if (!email) {
+        return next(new ErrorHandler("Please provide an email", 400));
+    }
+    const user = await User.findOne({ email });
+    if (!user) {
+        return next(new ErrorHandler("User not found", 404));
+    }
+    res.status(200).json({
+        success: true,
+        addresses: user.addresses,
+    });
+}
+));
+
 
 module.exports = router;

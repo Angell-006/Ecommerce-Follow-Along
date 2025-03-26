@@ -619,3 +619,13 @@ By completing this milestone, you will learn how to:
 - Pass the user email to the API to retrieve their orders.
 - Display all fetched orders in a structured format.
 - Add My Orders to the navigation for easy access.
+
+## Milestone 28: Cancel Order Feature
+### Learning Goals
+-  Add a Cancel Order button on the My Orders page.
+-  Create a backend endpoint to update order status.
+- Prevent users from canceling an already canceled order.
+
+### Steps to Implement
+- Add a Cancel Order button next to each active order.
+- Hide the button if the order is already canceled.

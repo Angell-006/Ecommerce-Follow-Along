@@ -610,3 +610,12 @@ By completing this milestone, you will learn how to:
 - Query the database using a user’s _id to get all orders.
 - Send all user orders in the response.
 
+## Milestone 27: My orders page
+### Learning Goals
+By completing this milestone, you will learn how to:
+
+- Create a frontend page to display all user orders.
+- Fetch user orders by making a GET request to the backend.
+- Pass the user email to the API to retrieve their orders.
+- Display all fetched orders in a structured format.
+- Add My Orders to the navigation for easy access.

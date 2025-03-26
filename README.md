@@ -602,3 +602,11 @@ By the end of this milestone, you will:
 - Verify that the order is stored correctly in the database.
 
 
+## Milestone 26: create a backend endpoint for place order
+### Learning Goals
+By completing this milestone, you will learn how to:
+- Create a backend endpoint to fetch all orders of a specific user.
+- Retrieve user details using an email.
+- Query the database using a user’s _id to get all orders.
+- Send all user orders in the response.
+

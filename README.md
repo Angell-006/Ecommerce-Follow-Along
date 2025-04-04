@@ -629,3 +629,25 @@ By completing this milestone, you will learn how to:
 ### Steps to Implement
 - Add a Cancel Order button next to each active order.
 - Hide the button if the order is already canceled.
+
+## Milestone 29:  Integrating PayPal Payment Gateway
+### Learning Goals 
+- Learn how to use PayPal API for online payments.
+- Understand how to integrate PayPal Sandbox for testing.
+- Add COD (Cash on Delivery) & Online Payment options to the order confirmation page.
+
+### Steps to implement 
+- Go to the PayPal Developer Dashboard.
+- Sign in or create a PayPal Developer Account.
+- Navigate to Sandbox Accounts under the Dashboard.
+- Copy the Sandbox User ID and Client ID.
+
+### Update Order Confirmation Page
+- Add COD and Online Payment options using radio buttons.
+- Show PayPal button only if Online Payment is selected.
+
+## Milestone 30:  Integrating PayPal Payment Gateway
+### Learning Goals 
+- Understand how to use the PayPal API for payments.
+- Be able to integrate online payments into your application.
+- Set up and use the react-paypal-js package in your React project.

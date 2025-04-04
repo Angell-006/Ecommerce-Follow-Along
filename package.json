@@ -4,6 +4,7 @@
   "description": "Ecommerce-Follow-Along is a comprehensive project designed to guide developers through the process of building an e-commerce application from scratch. This project will cover various aspects of web development, including front-end design, back-end integration, and database management, providing a hands-on learning experience.",
   "main": "backened/server.js",
   "dependencies": {
+    "@paypal/react-paypal-js": "^8.8.2",
     "acorn": "^8.14.0",
     "acorn-jsx": "^5.3.2",
     "ajv": "^6.12.6",

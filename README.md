@@ -658,3 +658,8 @@ By completing this milestone, you will learn how to:
 - Use Redux for global state management
 - Implement a Redux store to manage and update global state (email in this case)
 
+## Milestone 32: Accessing Global State with Redux
+### Learning Goals
+- Use Redux to **store** user email using `dispatch`
+- **Access** email in any component or page using `useSelector`
+- Understand practical usage of Redux across multiple pages

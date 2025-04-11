@@ -651,3 +651,10 @@ By completing this milestone, you will learn how to:
 - Understand how to use the PayPal API for payments.
 - Be able to integrate online payments into your application.
 - Set up and use the react-paypal-js package in your React project.
+
+
+## Milestone 31: Global State Management using Redux
+### Learning Goals 
+- Use Redux for global state management
+- Implement a Redux store to manage and update global state (email in this case)
+
